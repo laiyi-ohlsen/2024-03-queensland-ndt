@@ -50,8 +50,8 @@ with tab1:
                  title='Median Download Per State in Australia in 2024',
                  color='median_download')
     fig.update_layout(xaxis_title='State', 
-                      yaxis_title="Median Download (Mb/s)",
-                     legend_title_text="Median Download (Mb/s)")
+                      yaxis_title="Median Download (Mb/s)")
+    fig.update_coloraxes(colorbar_title_text="Mb/s")
     st.plotly_chart(fig)
 
     # Plot Median Upload
@@ -60,6 +60,7 @@ with tab1:
                  title='Median Upload (Mb/s) Per State in Australia in 2024',
                  color='median_upload')
     fig.update_layout(xaxis_title='State', yaxis_title="Median Upload (Mb/s)")
+    fig.update_coloraxes(colorbar_title_text="Mb/s")
     st.plotly_chart(fig)
 
 # ---------------- Queensland Per City ----------------
@@ -102,6 +103,7 @@ with tab2:
                  title='Median Download Per City in Queensland in 2024',
                  color='median_download')
     fig.update_layout(xaxis_title='City', yaxis_title="Median Download (Mb/s)")
+    fig.update_coloraxes(colorbar_title_text="Mb/s")
     st.plotly_chart(fig)
 
     # Plot Median Upload
@@ -110,6 +112,7 @@ with tab2:
                  title='Median Upload Per City in Queensland in 2024',
                  color='median_upload')
     fig.update_layout(xaxis_title='City', yaxis_title="Median Upload (Mb/s)")
+    fig.update_coloraxes(colorbar_title_text="Mb/s")
     st.plotly_chart(fig)
 
 # ---------------- Queensland Per ASN ----------------
@@ -151,6 +154,7 @@ with tab3:
                  title='Median Download Per Top 10 ASN in Queensland in 2024',
                  color='median_download')
     fig.update_layout(xaxis_title='ASN', yaxis_title="Median Download (Mb/s)")
+    fig.update_coloraxes(colorbar_title_text="Mb/s")
     st.plotly_chart(fig)
 
       # Plot Median Upload
@@ -159,4 +163,5 @@ with tab3:
                  title='Median Upload (Mb/s) Per Top 10 ASN in Queensland in 2024',
                  color='median_upload')
     fig.update_layout(xaxis_title='ASN', yaxis_title="Median Upload (Mb/s)")
+    fig.update_coloraxes(colorbar_title_text="Mb/s")
     st.plotly_chart(fig)
