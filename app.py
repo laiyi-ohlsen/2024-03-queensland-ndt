@@ -1,19 +1,10 @@
 # streamlit_app.py
 
 import streamlit as st
-from google.oauth2 import service_account
-from google.cloud import bigquery
 import plotly.express as px
 import pandas as pd
 
 from queries import au_stats, queensland_stats_city, queensland_stats_asn, queensland_median_city
-# Create API client.
-project_id = 'measurement-lab'
-location = 'US'
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
-)
-client = bigquery.Client(project=project_id, location=location,credentials=credentials)
 
 # Set up tabs
 
