@@ -1,5 +1,5 @@
 streamlit 
 google.oauth2
-google.cloud import bigquery
+google.cloud 
 plotly.express
 pandas 
