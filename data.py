@@ -2,7 +2,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 
-from queries import au_stats, queensland_stats_city, queensland_stats_asn, queensland_median_city, queensland_median_asn
+from queries import au_stats, queensland_stats_city, queensland_stats_asn, queensland_median_city, queensland_median_asn, au_median
 # Create API client.
 project_id = 'measurement-lab'
 location = 'US'
@@ -16,6 +16,9 @@ client = bigquery.Client(project=project_id, location=location,credentials=crede
 # df = client.query(au_stats.query).to_dataframe()
 # df.to_csv('data/au_stats.csv', index=False)  
 
+df = client.query(au_median.query).to_dataframe()
+df.to_csv('data/au_median.csv', index=False)
+
 # df = client.query(queensland_stats_city.query).to_dataframe()
 # df = df[df['total'] > 1000]
 # df.to_csv('data/queensland_stats_city.csv', index=False)  
@@ -27,5 +30,6 @@ client = bigquery.Client(project=project_id, location=location,credentials=crede
 # df.to_csv('data/queensland_stats_asn.csv', index=False)
 
 
-df = client.query(queensland_median_asn.query).to_dataframe()
-df.to_csv('data/queensland_median_asn.csv', index=False)
+# df = client.query(queensland_median_asn.query).to_dataframe()
+# df.to_csv('data/queensland_median_asn.csv', index=False)
+
