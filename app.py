@@ -47,16 +47,18 @@ with tab1:
     # Plot Median Download
     df = df.sort_values(by=['median_download'], ascending=False)
     fig = px.bar(df, x='state', y='median_download', 
-                 title='Median Download Per City in Queensland in 2024',
+                 title='Median Download Per State in Australia in 2024',
                  color='median_download')
-    fig.update_layout(xaxis_title='State', yaxis_title="Median Download (Mb/s)")
+    fig.update_layout(xaxis_title='State', 
+                      yaxis_title="Median Download (Mb/s)",
+                     legend_title_text="Median Download (Mb/s)")
     st.plotly_chart(fig)
 
     # Plot Median Upload
     df = df.sort_values(by=['median_upload'], ascending=False)
     fig = px.bar(df, x='state', y='median_upload', 
-                 title='Median Upload (Mb/s) Per City in Queensland in 2024',
-                 color='median_download')
+                 title='Median Upload (Mb/s) Per State in Australia in 2024',
+                 color='median_upload')
     fig.update_layout(xaxis_title='State', yaxis_title="Median Upload (Mb/s)")
     st.plotly_chart(fig)
 
@@ -105,7 +107,7 @@ with tab2:
     # Plot Median Upload
     df = df.sort_values(by=['median_upload'], ascending=False)
     fig = px.bar(df, x='city', y='median_upload', 
-                 title='Median Upload (Mb/s) Per City in Queensland in 2024',
+                 title='Median Upload Per City in Queensland in 2024',
                  color='median_upload')
     fig.update_layout(xaxis_title='City', yaxis_title="Median Upload (Mb/s)")
     st.plotly_chart(fig)
