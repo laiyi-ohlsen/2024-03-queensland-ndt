@@ -19,7 +19,8 @@ with tab1:
 
     # Get Data
     df = pd.read_csv('data/au_stats.csv')
-    st.table(df)
+    df_ = df.rename(columns={"state":"State", 'average':'Average Tests Per Day', 'total': 'Total Tests in 2024'})
+    st.table(df_)
 
     # Total
     fig = px.pie(df, values='total', names='state', 
@@ -36,7 +37,12 @@ with tab1:
 
         # Get Median Data
     df = pd.read_csv('data/au_median.csv')
-    st.table(df)
+    df_ = df.rename(columns={"state":"State", 
+                             'median_download':'Median Download (Mb/s)', 
+                             'median_upload': 'Median Upload (Mb/s)',
+                             'testcount': 'Number of Tests'})
+    st.table(df_)
+
 
     # Plot Median Download
     df = df.sort_values(by=['median_download'], ascending=False)
@@ -62,7 +68,8 @@ with tab2:
 
     # Get Stats Data
     df = pd.read_csv('data/queensland_stats_city.csv')
-    st.table(df)
+    df_ = df.rename(columns={"state":"State", 'average':'Average Tests Per Day', 'total': 'Total Tests in 2024'})
+    st.table(df_)
 
     # Total
     fig = px.pie(df, values='total', names='city', title='Total Number of Tests in Queensland Per City in 2024')
@@ -81,7 +88,11 @@ with tab2:
 
     # Get Median Data
     df = pd.read_csv('data/queensland_median_city.csv')
-    st.table(df)
+    df_ = df.rename(columns={"city":"City", 
+                             'median_download':'Median Download (Mb/s)', 
+                             'median_upload': 'Median Upload (Mb/s)',
+                             'testcount': 'Number of Tests'})
+    st.table(df_)
 
     # Plot Median Download
     df = df.sort_values(by=['median_download'], ascending=False)
@@ -101,13 +112,14 @@ with tab2:
 
 # ---------------- Queensland Per ASN ----------------
 with tab3: 
-    st.header("Queensland Per Top 10 ASN")
+    st.header("Queensland Per Top 10 Autonomous System Name (ASN)")
 
     st.subheader("Stats")
 
     # Get Data
     df = pd.read_csv('data/queensland_stats_asn.csv')
-    st.table(df)
+    df_ = df.rename(columns={"state":"State", 'average':'Average Tests Per Day', 'total': 'Total Tests in 2024'})
+    st.table(df_)
 
     # Total
     fig = px.pie(df, values='total', names='ASName', title='Total Number of Tests in Queensland Per Top 10 ASN in 2024')
@@ -125,7 +137,11 @@ with tab3:
 
     # Get Median Data
     df = pd.read_csv('data/queensland_median_asn.csv')
-    st.table(df)
+    df_ = df.rename(columns={"ASName":"ASN", 
+                             'median_download':'Median Download (Mb/s)', 
+                             'median_upload': 'Median Upload (Mb/s)',
+                             'testcount': 'Number of Tests'})
+    st.table(df_)
 
     # Plot Median Download
     df = df.sort_values(by=['median_download'], ascending=False)
